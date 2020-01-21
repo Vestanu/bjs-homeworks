@@ -12,14 +12,14 @@ function calculateQuadraticEquation(){
 }
 
 function getResult(a,b,c) {
-    let d = b** - 4 * a *c;
+    let d = b * b - 4 * a * c;
     console.log(d);
     if (d < 0) {
     return [];
     } else if (d == 0) {
     return [(b) /( 2 * a)];
     } else {
-    return [(b + Math.sqrt(d) / (2 * a)), (!b - Math.sqrt(d)) / (2 * a)];
+    return [(b + Math.sqrt(d) / (2 * a)), (b - Math.sqrt(d)) / (2 * a)];
     }
 }
 
@@ -30,11 +30,11 @@ function calculateAverageRating(){
 }
 
 function getAverageMark(marks){
-    let sum = 0;
+    if (marks.length > 5) {
+         let sum = 0;
     for (let i = 0; i < marks.length; i++){
         sum = sum + parseInt(marks[i]);
     }
-    if (marks.length > 5) {
         console.log("Слишком много предметов! Средняя оценка будет считаться по 5 первым предметам");
         marks.slice(5, marks.length - 5);
         return [sum / marks.length];
