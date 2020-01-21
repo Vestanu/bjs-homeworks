@@ -36,7 +36,7 @@ function getAverageMark(marks){
         sum = sum + parseInt(marks[i]);
     }
         console.log("Слишком много предметов! Средняя оценка будет считаться по 5 первым предметам");
-        marks.slice(5, marks.length - 5);
+        marks.splice(5, marks.length - 5);
         return [sum / marks.length];
     } else {
         return [sum / marks.length];
