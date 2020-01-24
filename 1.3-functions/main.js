@@ -1,8 +1,7 @@
+//Задание №1
 
-function showSolutionsMessage (a, b, c) {
-    result = getSolution(a, b, c);
 
-    function getSolution(a, b, c) {
+ function getSolution(a, b, c) {
         let d = b * b - 4 * a * c;
         if (d < 0) {
             return {D: d};
@@ -15,6 +14,9 @@ function showSolutionsMessage (a, b, c) {
             return { roots: [x1, x2], D: d };
         }
     };
+
+function showSolutionsMessage (a, b, c) {
+    result = getSolution(a, b, c);
 
     console.log(`Вычисляем корни квадратного уравнения ${a}x² + ${b}x + ${c}`);
     console.log(`Значение дискриминанта: ${result.D}`);
