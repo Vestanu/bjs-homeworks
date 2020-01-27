@@ -102,3 +102,31 @@ let data = {
     console.log(getAverageScore(data));
 
 //Задание №3
+
+let secretData = {"aaa": 1, "bbb": 0};
+
+function getPersonalData(secretData) {
+secretData.firstName = secretData.aaa;
+secretData.lastName = secretData.bbb;
+delete secretData.aaa;
+delete secretData.bbb;
+
+for ( let key in secretData) {
+  let x = secretData[key];
+  x = numberConvector(x);
+  console.log(`${[key]} : ${x} `);
+    
+}
+}
+
+function numberConvector(x) {
+  if (x === 1) {
+  return "Эмильо"
+} else {
+  return "Родриго"
+};
+}
+getPersonalData(secretData);
+getPersonalData({ "aaa": 1, "bbb": 1 });
+getPersonalData({ "aaa": 0, "bbb": 1 });
+getPersonalData({ "aaa": 0, "bbb": 0 });
