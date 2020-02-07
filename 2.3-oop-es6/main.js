@@ -83,23 +83,74 @@ console.log(stormCrook.getDamage());
 class StudentLog {
     constructor (name) {
         this.name = name;
+        this.marks = {};
     }
 
     getName(name) {
         return this.name;
     }
 
+   
     addGrade(grade, subject) {
-        
-     
-        if (grade > 5 || !Number (grade)) {
-            return `Вы пытались поставить оценку ${this.grade} по предмету "${this.subject}". Допускаются только числа от 1 до 5.`
+        if (grade < 6 && grade > 0 && Number.isInteger(grade)) {
+          if (this.marks[subject] === undefined) {
+            this.marks[subject] = [grade];
+          } else {
+            this.marks[subject].push(grade);
+          }
+        } else { 
+          console.log(`Вы пытались поставить оценку ${grade} по предмету ${subject}. Допускаются только числа от 1 до 5.`);
         }
-
-    }
+          
+        if (this.marks[subject] === undefined) {
+          return 0;
+        } else {
+          return this.marks[subject].length;
+        }
+      }
+    
+      getAverageBySubject(subject) {
+        if (this.marks[subject] === undefined) {
+          return 0
+        } else {
+          let sum = 0;
+          for (let mark of this.marks[subject]) {
+            sum += mark;
+          }
+          return sum / this.marks[subject].length;
+        }
+      }
+    
+      getTotalAverage() {
+        if (Object.keys(this.marks).length === 0) {
+          return 0;
+        } else {
+          let sum = 0;
+          for (let subject in this.marks) {
+            sum += this.getAverageBySubject(subject);
+          }
+          return sum / Object.keys(this.marks).length;
+        }
+      }
+    
 }
 
 const log = new StudentLog('Олег Никифоров');
 console.log(log.getName()) ;
-// console.log(log.addGrade('отлично!', 'math'));
+console.log(log.addGrade('отлично!', 'math'));
 console.log(log.addGrade(4, 'algebra'));
+console.log(log.addGrade(6, 'algebra'));
+log.addGrade(2, 'algebra');
+log.addGrade(4, 'algebra');
+log.addGrade(5, 'geometry');
+log.addGrade(4, 'geometry');
+
+console.log(log.getAverageBySubject('geometry')); 
+console.log(log.getAverageBySubject('algebra')); 
+console.log(log.getAverageBySubject('math')); 
+log.addGrade(2, 'algebra');
+log.addGrade(4, 'algebra');
+log.addGrade(5, 'geometry');
+log.addGrade(4, 'geometry');
+
+console.log(log.getTotalAverage()); 
