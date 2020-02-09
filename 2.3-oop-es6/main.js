@@ -1,3 +1,4 @@
+
 // Задача №1
 
 class Weapon {
@@ -6,7 +7,7 @@ class Weapon {
         this.attack = attack;
         this.durability =  durability;
         this.range = range;
-        
+        this.totalDurability = durability;
     }
 
     takeDamage(damage) {
@@ -20,7 +21,7 @@ class Weapon {
     }
 
     getDamage(durability) {
-        if (this.durability >= 0.3 * durability) {
+        if (this.durability >= 0.3 * this.totalDurability) {
             return this.attack;
         } else if (this.durability == 0) {
             return 0;
@@ -60,23 +61,95 @@ console.log(bow.isBroken());
 // Задача №2
 
 class Bow extends Weapon {
+  constructor() {
+    super();
+    this.name = 'Лук';
+    this.attack = 10;
+    this.durability = 200;
+    this.range = 3;
+    this.totalDurability = this.durability;
+}
     
 };
 
 class Sword extends Weapon {
-
+  constructor() {
+    super();
+    this.name = 'Меч';
+    this.attack = 25;
+    this.durability = 500;
+    this.range = 1;
+    this.totalDurability = this.durability;
+}
 };
 class Crook extends Weapon {
-
+  constructor() {
+    super();
+    this.name = 'Посох';
+    this.attack = 8;
+    this.durability = 300;
+    this.range = 2;
+    this.totalDurability = this.durability;
+}
 };
 
-const longBow = new Bow("Длинный лук", 10, 400, 4);
-console.log(longBow.takeDamage(80));
-const axe = new Sword("Секира", 27, 800, 1);
-console.log(axe.isBroken());
-const stormCrook = new Crook("Посох Бури", 10, 300, 3);
-console.log(stormCrook.takeDamage(55));
-console.log(stormCrook.getDamage());
+class Knife extends Weapon {
+  constructor() {
+    super();
+    this.name = 'Нож';
+    this.attack = 5;
+    this.durability = 300;
+    this.range = 1;
+    this.totalDurability = this.durability;
+}
+};
+
+class Arm extends Weapon {
+  constructor() {
+    super();
+    this.name = 'Рука';
+    this.attack = 1;
+    this.durability = Infinity;
+    this.range = 1;
+    this.totalDurability = this.durability;
+}
+};
+
+
+
+class longBow extends Bow {
+  constructor() {
+    super();
+    this.name = 'Длинный лук';
+    this.attack = 15;
+    this.range = 4;
+}
+};
+
+class Axe extends Sword {
+  constructor() {
+    super();
+    this.name = 'Секира';
+    this.attack = 27;
+    this.durability = 800;
+    this.totalDurability = this.durability;
+}
+};
+class StormCrook extends Crook {
+  constructor() {
+    super();
+    this.name = 'Посох бури';
+    this.attack = 10;
+    this.range = 3;
+}
+};
+
+const armoredSword = new Sword;
+console.log(armoredSword);
+const wizardCrook = new Crook;
+console.log(wizardCrook);
+
+
 
 // Задача №3
 

@@ -1,3 +1,4 @@
+
 "use strict";
 
 function calculateMortgage() {
@@ -52,3 +53,12 @@ function getGreeting(name) {
     }
     return `Привет, мир! Меня зовут ${name}`;
 };
+function calculateTotalMortgage(percent, contribution, amount, date) {
+    // код для задачи №1 писать здесь
+    // return totalAmount;
+}
+
+function getGreeting(name) {
+    // код для задачи №2 писать здесь
+    // return greeting;
+}
