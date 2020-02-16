@@ -117,7 +117,7 @@ class Arm extends Weapon {
 
 
 
-class longBow extends Bow {
+class LongBow extends Bow {
   constructor() {
     super();
     this.name = 'Длинный лук';
