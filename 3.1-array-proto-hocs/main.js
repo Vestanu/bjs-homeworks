@@ -23,7 +23,7 @@ function memorize(fn, limit) {
     let test = results.find(item => compareArrays(item.args, Array.from(args)));
 
     if (test) {
-      return arr.result;
+      return arr.arr;
     } else {
       let result = fn(...args);
       arr.push({
